@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>循此苦旅，直抵群星</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("https://i.328888.xyz/2023/04/14/i7VpT8.jpeg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+
+        }
+
+        h1 {
+            font-size: 5em;
+            margin: 0;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1:hover {
+            color: rgba(239, 239, 230, 0.45);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .quote {
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            position: absolute;
+            opacity: 0;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        form {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        select {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 1em;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            font-size: 0.8em;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 10%;
+            width: 100%;
+        }
+
+        .button {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.5;
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            color: #000;
+            background-color: #fff;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover:before {
+            transform: translateX(-100%);
+        }
+
+        .button:nth-child(1):before {
+            background-image: url("icon1.png");
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+
+        .button:nth-child(2):before {
+            background-image: url("icon2.png");
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+
+        .button:nth-child(3):before {
+            background-image: url("icon3.png");
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>循此苦旅，直抵群星</h1>
+        <form id="search-form">
+            <select id="search-engine">
+                <option value="https://www.google.com/search?q=">Google</option>
+                <option value="https://www.bing.com/search?q=">Bing</option>
+                <option value="https://www.yahoo.com/search?q=">Yahoo</option>
+                <option value="https://www.Baidu.com/s?wd=">Baidu</option>
+                <option
+                    value="https://www.bilibili.com/video/BV1J4411v7g6/?spm_id_from=333.337.search-card.all.click&vd_source=65ca513faab5dcd1de6121c4ac40d1eb">
+                    彩蛋</option>
+            </select>
+            <input type="text" id="search-box" placeholder="Enter your search term...">
+            <input type="submit" value="Search">
+        </form>
+        <div class="container">
+            <a href="https://github.com" target="_blank" class="button">Github</a>
+            <a href="https://blog.csdn.net/" target="_blank" class="button">CSDN</a>
+            <a href="https://www.bilibili.com/" target="_blank" class="button">Bilibili</a>
+        </div>
+
+
+
+    </header>
+
+
+    <footer>
+        Designed by Trigger &copy; 2023
+    </footer>
+
+    <script>
+        const form = document.getElementById("search-form");
+        const searchBox = document.getElementById("search-box");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const searchEngine = document.getElementById("search-engine").value;
+            const searchTerm = searchBox.value;
+            const searchUrl = searchEngine + encodeURIComponent(searchTerm);
+            window.open(searchUrl, "_blank");
+        });
+    </script>
+    <script>
+        window.onload = function () {
+            var title = document.getElementsByTagName("h1")[0];
+            title.onclick = function () {
+                var quotes = [
+                    "生命在于运动。",
+                    "天行健，君子以自强不息。",
+                    "永不放弃。",
+                    "努力并不一定成功，但不努力却一定不会成功。",
+                    "光阴似箭，日月如梭。",
+                    "只要能想，就能做。",
+                    "行动是成功的阶梯。",
+                    "瀑布流不因迎面的风而停止奔流。",
+                    "世上无难事，只怕有心人。",
+                    "如果你想要拥有你从未拥有过的东西，就必须去做你从未做过的事情。",
+                    "往后余生，风雪是你，平淡是你，清欢是你，浓情是你，心底温柔是你。",
+                    "所谓天才，就是比别人多一份努力。",
+                    "不要为昨天的事情担心，因为你不能改变它；不要为明天的事情担心，因为你不能掌控它。只要把握好今天，活在当下。",
+                    "不管你多努力，总有人比你更努力。",
+                    "即使你不知道路在何方，也请放下过去，向前走。",
+                    "学习不是为了逃避现实，而是为了改变未来。",
+                    "成功路上有很多拐角，但绝不应放弃。",
+                    "不要让别人的评价左右自己，最重要的是自己的认可。",
+                    "生命不息，奋斗不止。",
+                    "没有什么事情是一蹴而就的，要有耐心，持之以恒。",
+                    "做人最重要的是真诚，做事最重要的是细心。",
+                    "想要成功，就必须相信自己。",
+                    "只有付出，才会有回报。",
+                    "成功需要付出更多的努力，而不是更多的时间。",
+                    "不要让失败阻挡你前进的脚步，要从失败中吸取教训，不断前进。",
+                    "没有哪个人天生就是赢家，只有不断的努力才会让你成为赢家。",
+                    "自己选择的路，就要勇敢走下去。",
+                    "你只有拼尽全力，才能拥有更好的未来。"
+                ];
+                var quote = quotes[Math.floor(Math.random() * quotes.length)];
+                var element = document.createElement("div");
+                element.className = "quote";
+                element.innerHTML = quote;
+                document.body.appendChild(element);
+                var x = Math.floor(Math.random() * window.innerWidth * 0.8);
+                var y = Math.floor(Math.random() * window.innerHeight * 0.8);
+                element.style.left = x - 5 + "px";
+                element.style.top = y - 5 + "px";
+                setTimeout(function () {
+                    document.body.removeChild(element);
+                }, 3000);
+            };
+        };
+    </script>
+
+</body>
+
+</html>
